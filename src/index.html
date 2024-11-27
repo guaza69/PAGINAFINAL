@@ -2,16 +2,794 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
-</head>
+    <meta charset="utf-8">
+    <title>AI</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .gallery-item {
+          width: 270px; /* Ajusta al ancho deseado */
+          height: 270px; /* Ajusta al alto deseado */
+          overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+        }
+      
+        .gallery-item img {
+          width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+          height: 100%; /* La imagen ocupa todo el alto del contenedor */
+          object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+        }
+      </style>
+      
+</head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-1 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <h1 class="display-4 text-white text-uppercase m-0">APP</h1>
+
+            
+        </a>
+        
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto py-0">
+                <!-- Botón para abrir el modal de login -->
+ <button onclick="mostrarModal()" class="login-btn">Iniciar sesión </button>
+
+ <!-- El Modal (Formulario flotante) -->
+ <div id="loginModal" class="modal">
+     <div class="modal-content">
+         <!-- Pestañas de Login / Registro -->
+         <div class="tabs">
+             <div class="tab-btn active" onclick="mostrarLogin()">Login</div>
+             <div class="tab-btn" onclick="mostrarRegistro()">Registrarse</div>
+         </div>
+
+         <!-- Formulario de Login -->
+         <div id="loginTab" class="tab-content active">
+             <h2>Iniciar sesión</h2>
+             <form id="formLogin" onsubmit="return validarLogin(event)">
+                 <input type="text" id="usuario" class="input-field" placeholder="Usuario" required>
+                 <input type="password" id="contrasena" class="input-field" placeholder="Contraseña" required>
+                 <button type="submit" class="login-modal-btn">Ingresar</button>
+             </form>
+         </div>
+
+         <!-- Formulario de Registro -->
+         <div id="registroTab" class="tab-content">
+             <h2></h2>
+             <form id="formRegistro" onsubmit="return validarRegistro(event)">
+                 <input type="text" id="usuarioRegistro" class="input-field" placeholder="Usuario" required>
+                 <input type="password" id="contrasenaRegistro" class="input-field" placeholder="Contraseña" required>
+                 <input type="password" id="confirmarContrasena" class="input-field" placeholder="Confirmar Contraseña" required>
+                 <button type="submit" class="login-modal-btn">Registrarse</button>
+             </form>
+         </div>
+
+         <div class="error-message" id="error-message"></div>
+    </div>
+ </div>
+                <a href="#home" class="nav-item nav-link active">Inicio</a>
+                <a href="#about" class="nav-item nav-link">Nosotros</a>
+                <a href="#service" class="nav-item nav-link">Servicios</a>
+                <a href="#project" class="nav-item nav-link"></a>
+            </div>
+            <div class="spinner">
+    <div class="spinner1"></div>
+</div>
+            <div class="navbar-nav mr-auto py-0">
+                
+                <a href="#faqs" class="nav-item nav-link">Preguntas</a>
+                <a href="#testimonial" class="nav-item nav-link">Casos de Éxito</a>
+                <a href="#contact" class="nav-item nav-link">Contáctanos</a>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Navbar End -->
+    
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5 pb-5" id="home">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item position-relative active" style="height: 100vh; min-height: 400px;">
+                    <img class="position-absolute w-100 h-100" src="img/Ai.png" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;"></h4>
+                            <h3 class="display-2 font-secondary text-white mb-4">QuantumMind</h3>
+                            <a class="btn btn-light font-weight-bold py-3 px-5 mt-2 btn-scroll" href="#contact">Obtén tu cotización</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
+                    <img class="position-absolute w-100 h-100" src="img/AI2.png" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;"> </h4>
+                            <h3 class="display-2 font-secondary text-white mb-4">"Desata el poder de la mente, transforma el futuro hoy."</h3>
+                            <a class="btn btn-light font-weight-bold py-3 px-5 mt-2 btn-scroll" href="#contact">Obtén tu cotización</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev justify-content-start" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
+                    <span class="carousel-control-prev-icon mt-3"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next justify-content-end" href="#header-carousel" data-slide="next">
+                <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
+                    <span class="carousel-control-next-icon mt-3"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+   
+
+    <!-- About Start -->
+    <div class="container-fluid py-5" id="about">
+        <iframe width="560" height="315" id="video26"   src="https://www.youtube.com/embed/pvi8O7pt1uQ?si=YY53yUBE5usL8RBx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid mb-4 mb-lg-0" src="img/una imagen de una app innovadora para un fondo.png" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Sobre Nosotros</h6>
+                    <h1 class="display-4 mb-3"><span class="text-primary">+5 Años De Experiencia</span> En Inteligencia Artificial</h1>
+                    <p>Transforma tu negocio con nuestra innovadora IA que automatiza tareas, analiza datos en tiempo real y mejora la atención al cliente. Con soluciones personalizadas y soporte continuo, optimizamos tus procesos y te ayudamos a tomar decisiones informadas. ¡Contáctanos hoy y lleva tu empresa al siguiente nivel!
+                    </p>
+                    <a class="btn btn-primary font-weight-bold py-3 px-5 mt-2" type="button" data-toggle="modal" data-target="#exampleModalLong4">Leer Más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficios Clave</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+
+    <div class="benefits-container">
+        <div class="benefit">
+            <div class="icon">✅</div>
+            <h3>Fácil de usar</h3>
+            <p>Disfruta de una interfaz simple y amigable que no requiere aprendizaje adicional.</p>
+        </div>
+
+        <div class="benefit">
+            <div class="icon">💰</div>
+            <h3>Gratis</h3>
+            <p>Accede a todas las funcionalidades sin ningún costo adicional.</p>
+        </div>
+
+        <div class="benefit">
+            <div class="icon">📞</div>
+            <h3>Soporte 24/7</h3>
+            <p>Recibe asistencia en cualquier momento, día o noche, con nuestro equipo dedicado.</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+    <!-- About End -->
+
+
+    <!-- Service Start -->
+    <div class="container-fluid py-5" id="service">
+        <div class="container py-5">
+            <div class="section-title position-relative text-center">
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Servicios</h6>
+                <h1 class="font-secondary display-4">Qué Ofrecemos</h1>
+                <div class="row">
+                    <div class="col-lg-4 mb-3">
+                        <div class="product-item mb-2">
+                            <div class="product-img">
+                                <img class="img-fluid" src="img/aiiiiii.jpg" alt="" id="img1">
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                                    <i class="fa fa-2x fa-plus text-white"></i>
+                                </a>
+                            </div>
+                            <div class="bg-secondary text-center p-4">
+                                <h3 class="m-0">Innovación</h3>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-lg-4 mb-3">
+                        <div class="product-item mb-2">
+                            <div class="product-img">
+                                <img class="img-fluid" src="img/aiii.jpg" alt="" id="img2">
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong2">
+                                    <i class="fa fa-2x fa-plus text-white"></i>
+                                </a>
+                            </div>
+                            <div class="bg-secondary text-center p-4">
+                                <h3 class="m-0">Desarrollo</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                        <div class="product-item mb-2">
+                            <div class="product-img">
+                                <img class="img-fluid" src="img/aiiiiii3.jpg" alt="" id="img2">
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong3">
+                                    <i class="fa fa-2x fa-plus text-white"></i>
+                                </a>
+                            </div>
+                            <div class="bg-secondary text-center p-4">
+                                <h3 class="m-0">Conocimiento</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <style>
+                   
+                    
+                </style>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Gallery Start -->
+    <div class="container-fluid bg-gallery" id="project" style="padding: 120px 0; margin: 90px 0;">
+        <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Proyecto</h6>
+            <h1 class="font-secondary display-4 text-white">Galería de Proyectos</h1>
+        </div>
+        <div class="owl-carousel gallery-carousel">
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/img_gallery-1.jpg" alt="">
+                <a class="btn btn-primary" href="img/img_gallery-1.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/img_gallery-2.jpg" alt="">
+                <a class="btn btn-primary" href="img/img_gallery-2.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/img_gallery-3.jpeg" alt="">
+                <a class="btn btn-primary" href="img/img_gallery-3.jpeg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/img_gallery-4.jpg" alt="">
+                <a class="btn btn-primary" href="img/img_gallery-4.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/img_gallery-5.jpg" alt="">
+                <a class="btn btn-primary" href="img/img_gallery-5.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="img/img_gallery-6.jpg" alt="">
+                <a class="btn btn-primary" href="img/img_gallery-6.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
+
+
+   
+
+    <!-- FAQs Start -->
+    <div class="container-fluid py-5" id="faqs">
+        <div class="container py-5">
+            <div class="section-title position-relative text-center">
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">¿Tienes dudas?🤔</h6>
+                <h1 class="display-4">Lo que deberías saber </h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6 border-right border-primary">
+                    <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
+                        <h3 class="mb-4">¡Descubrirás el futuro con nuestra IA!</h3>
+                        <h5 class="mb-3"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Atención al cliente personalizada</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Mejora en la toma de decisiones</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Seguridad mejorada</h5>
+                        <h5 class="mb-0"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Eficiencia operativa</h5>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center text-md-left ml-md-3">
+                        <h3 class="mb-4">¿Por qué elegirnos?</h3>
+                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Estamos comprometidos con la innovación</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Brindamos soluciones personalizadas</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Soporte Continuo y Capacitación</h5>
+                        <h5 class="mb-0"><i class="fa fa-check text-success mr-2"></i>Expertise y Experiencia</h5>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center pt-3">
+                    <a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact">Obtén tu cotización</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5" id="testimonial">
+        <div class="container py-5">
+            <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Testimonios</h6>
+                <h1 class="display-4">Clientes 🤩</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="owl-carousel testimonial-carousel">
+                        <div class="text-center">
+                            <img class="img-fluid mx-auto mb-3" src="img/negro.jpg" style="width: 100px;">
+                            <p style="font-size: 22px;">Carlos, emprendedor tecnológico: "Como dueño de una pequeña empresa, mi tiempo es muy limitado. ChatGPT ha sido una herramienta increíble para agilizar tareas como la redacción de correos electrónicos, generar ideas para campañas de marketing e incluso para hacer investigaciones rápidas. Lo mejor es que siempre está disponible y me permite centrarme en los aspectos más estratégicos de mi negocio."</p>
+                            <h4></h4>
+                            <span>Profesional</span>
+                        </div>
+                        <div class="text-center">
+                            <img class="img-fluid mx-auto mb-3" src="img/maria.jpg" style="width: 100px;">
+                            <p style="font-size: 22px;">María, estudiante de psicología: "Descubrí ChatGPT mientras buscaba ayuda para mejorar mis redacciones académicas. Al principio, no estaba segura de cómo funcionaría, pero pronto me di cuenta de que podía ayudarme a estructurar mis ideas de manera más clara. También me ha servido para repasar conceptos complejos de la psicología. Es como tener un asistente personal que te escucha y te guía sin juzgar. ¡Realmente ha mejorado mi productividad!"</p>
+                            <span>Profesional</span>
+                            
+   
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5" id="contact">
+        <div class="container py-5">
+            <div class="section-title position-relative text-center">
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Información de Contacto</h6>
+                <h1 class="font-secondary display-4">Contáctanos</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="form-row">
+                                <div class="col-sm-6 control-group">
+                                    <input type="text" class="form-control bg-secondary border-0 py-4 px-3" id="name" placeholder="Nombre" required="required" data-validation-required-message="Please enter your name" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 control-group">
+                                    <input type="email" class="form-control bg-secondary border-0 py-4 px-3" id="email" placeholder="Correo Electrónico" required="required" data-validation-required-message="Please enter your email" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control bg-secondary border-0 py-4 px-3" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="6" id="message" placeholder="Mensaje" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit" id="sendMessageButton">Enviar Mensaje</button>
+                                <!DOCTYPE html>
+                                <div>
+                                    <!-- Botón de Google Play -->
+                                    <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt&hl=es_CO" class="boton-descarga" target="_blank">
+                                        <img src="img/gugug.png" alt="Descargar en Google Play">
+                                    </a>
+                            
+                                    <!-- Botón de Apple App Store -->
+                                    <a href="https://apps.apple.com/co/app/chatgpt/id6448311069" class="boton-descarga" target="_blank">
+                                        <img src="img/app2.png" alt="Descargar en App Store">
+                                    </a>
+                                </div>
+                                 
+                            
+                                
+
+</body>
+</html>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-12 mb-4 px-4">
+                <div class="row mb-5 p-4" style="background: rgba(256, 256, 256, .05);">
+                    <div class="col-md-4">
+                        <div class="text-md-center">
+                            <h5 class="text-primary text-uppercase mb-2" style="letter-spacing: 5px;">Nuestras Oficinas</h5>
+                            <p class="mb-4 m-md-0">Cra. 43A #7 Sur-170 Local 1269 A, El Poblado, Medellín, El Poblado, Medellín, Antioquia</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-md-center">
+                            <h5 class="text-primary text-uppercase mb-2" style="letter-spacing: 5px;">Nuestro Correo</h5>
+                            <p class="mb-4 m-md-0">JGUAZA999@GMAIL.COM</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-md-center">
+                            <h5 class="text-primary text-uppercase mb-2" style="letter-spacing: 5px;">Llámanos</h5>
+                            <p class="m-0">+3012321004</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <p>SIGUENOS EN NUESTRAS REDES SOCIALES </p>
+                        
+                        
+                        <div class="social-login-icons">
+                          <div class="socialcontainer">
+                            <div class="icon social-icon-1-1">
+                              <svg
+                                viewBox="0 0 512 512"
+                                height="1.7em"
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="svgIcontwit"
+                                fill="white"
+                              >
+                               
+                              </svg>
+                            </div>
+                            <div class="social-icon-1">
+                              <svg
+                                viewBox="0 0 512 512"
+                                height="1.7em"
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="svgIcontwit"
+                                fill="white"
+                              >
+                                <path
+                                  d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="socialcontainer">
+                            <div class="icon social-icon-2-2">
+                              <svg
+                                fill="white"
+                                class="svgIcon"
+                                viewBox="0 0 448 512"
+                                height="1.5em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  
+                                ></path>
+                              </svg>
+                            </div>
+                            <div class="social-icon-2">
+                              <svg
+                                fill="white"
+                                class="svgIcon"
+                                viewBox="0 0 448 512"
+                                height="1.5em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="socialcontainer">
+                            <div class="icon social-icon-3-3">
+                              <svg
+                                viewBox="0 0 384 512"
+                                fill="white"
+                                height="1.6em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                              </svg>
+                            </div>
+                            <div class="social-icon-3">
+                              <svg
+                                viewBox="0 0 384 512"
+                                fill="white"
+                                height="1.6em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                         
+                              </svg>
+                            </div>
+                            
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Sección para registrar correo electrónico -->
+    <div class="form-container">
+        <h2>Regístrate para recibir actualizaciones</h2>
+        <form id="emailForm">
+            <input type="email" id="email" placeholder="Introduce tu correo electrónico" required>
+            <button type="submit">Registrar</button>
+        </form>
+        <p id="confirmationMessage" style="display: none; color: green;">¡Gracias por registrarte! Recibirás actualizaciones.</p>
+
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6 mb-5">
+                        <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Nuestros Productos</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white btn-scroll mb-2" href="#service"><i class="fa fa-angle-right mr-2"></i>Solar System</a>
+                            <a class="text-white btn-scroll mb-2" href="#service"><i class="fa fa-angle-right mr-2"></i>Wind Turbine</a>
+                            <a class="text-white btn-scroll mb-2" href="#service"><i class="fa fa-angle-right mr-2"></i>Wind Generator</a>
+                            <a class="text-white btn-scroll mb-2" href="#service"><i class="fa fa-angle-right mr-2"></i>Solar Energy</a>
+                            <a class="text-white btn-scroll" href="#service"><i class="fa fa-angle-right mr-2"></i>Solar Panel</a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12 mb-5">
+        
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white text-center border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .05) !important;">
+        <p class="m-0 text-white">&copy; <a href="#">Nombre de Dominio</a>. Todos los derechos Reservados. Desarrollado por <a href=" https://htmlcodex.com">HTML Codex</a></p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Innovación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid mb-4" src="img/carousel-1.jpg" alt="">
+                    <p>La innovación es el motor que impulsa el progreso y el crecimiento en cualquier campo. En la era digital en la que vivimos, la innovación es más importante que nunca. Las empresas y organizaciones que no innovan, se quedan atrás y pierden competitividad.
+                    </p>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal2 -->
+    <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Desarrollo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid mb-4" src="img/carousel-1.jpg" alt="">
+                    <p>Una de las formas en que la IA ayuda al desarrollo de aplicaciones es a través de la automatización de tareas. La IA puede ayudar a automatizar tareas repetitivas y rutinarias, lo que puede liberar tiempo y recursos para que los desarrolladores se concentren en tareas más complejas y creativas.</p>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Modal3 -->
+        <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Conocimiento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid mb-4" src="img/carousel-1.jpg" alt="">
+                    <p>Uno de los impactos más significativos de la IA en el conocimiento es la capacidad de procesar y analizar grandes cantidades de datos de manera rápida y eficiente. Esto ha permitido a los investigadores y científicos descubrir patrones y tendencias que no serían evidentes para los humanos. Por ejemplo, la IA ha sido utilizada para analizar datos de secuenciación de ADN y descubrir nuevos genes y mutaciones que están asociados con enfermedades.</p>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal4-->
+    <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Ofrecemos una solución avanzada que transforma la manera en que interactúas con la tecnología. Desde chatbots inteligentes que mejoran la atención al cliente hasta análisis de datos que optimizan tus decisiones empresariales, nuestra IA está diseñada para adaptarse a tus necesidades. ¡Únete a la revolución digital y potencia tu negocio hoy mismo!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+</button>
+</div>
+    <!-- Modal -->
+
+
+    <!-- Scroll to Bottom -->
+    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asistente Virtual Flotante</title>
+<style>
+    /* Estilo para la burbuja flotante */
+    
+    
+    
+</style>
+</head>
+<body>
+
+<!-- Burbuja flotante del chat -->
+<div id="chatBubble" onclick="toggleChat()">
+    💬
+</div>
+
+<!-- Caja de chat que se abrirá al hacer clic -->
+<div id="chatbox">
+    <div id="messages"></div>
+    <input type="text" id="userInput" placeholder="Escribe algo..." onkeypress="checkEnter(event)" />
+    <button onclick="sendMessage()">Enviar</button>
+</div>
+
+<script>
+    // Función para mostrar u ocultar el chat
+    function toggleChat() {
+        var chatbox = document.getElementById('chatbox');
+        if (chatbox.style.display === 'none' || chatbox.style.display === '') {
+            chatbox.style.display = 'flex';
+        } else {
+            chatbox.style.display = 'none';
+        }
+    }
+
+    // Función para enviar el mensaje al asistente (por ejemplo, con Dialogflow o GPT-3)
+    async function sendMessage() {
+        var userMessage = document.getElementById('userInput').value;
+        var messages = document.getElementById('messages');
+        if (userMessage.trim() !== "") {
+            messages.innerHTML += `<div><strong>Tú:</strong> ${userMessage}</div>`;
+            document.getElementById('userInput').value = ''; // Limpiar el campo
+
+            // Aquí puedes integrar tu lógica con Dialogflow o GPT-3
+            var botReply = await askGPT(userMessage); // O usa Dialogflow
+            messages.innerHTML += `<div><strong>Asistente:</strong> ${botReply}</div>`;
+
+            messages.scrollTop = messages.scrollHeight; // Desplazar hacia abajo
+        }
+    }
+
+    // Función para enviar la consulta a GPT-3 o similar (puedes usar Dialogflow también)
+    async function askGPT(question) {
+        // Llama a tu API para obtener la respuesta (esto es solo un ejemplo)
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Esta es la respuesta generada por GPT-3 o tu asistente IA.");
+            }, 1000); // Simulando una respuesta del bot
+        });
+    }
+
+    // Detectar cuando el usuario presiona "Enter" para enviar el mensaje
+    function checkEnter(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+
+</script>
+
+</body>
+</html>
+
+
+
